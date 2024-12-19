@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Tabela de Treinos</title>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <img src="https://seeklogo.com/images/G/gym-logo-C00BD4A235-seeklogo.com.png" width="50" height="50" class="d-inline-block align-top mr-3" alt="">
+    <a class="navbar-brand text-light" href=>LOREM</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link text-light" href="{%url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="{% url 'cadastrar_completo' %}">Cadastro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="{% url 'lista_alunos' %}">Alunos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="{% url 'tabela_treinos' %}">Treinos</a>
+        </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="{% url 'contratos' %}" >Contratos</a>
+      </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4 text-center">Tabela de Treinos</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Tipo de Treino</th>
+            <th scope="col">Objetivo de Treino</th>
+
+          </tr>
+        </thead>
+          <tbody>
+              {% for treino in treinos %}
+              <tr>
+              <td>{{ treino.aluno.nome }}</td>
+              <td>{{ treino.tipo_treino }}</td>
+              <td>{{ treino.aluno.tipo_de_treino }}</td>
+            </tr>
+            {% endfor %}
+      </div>
+</body>
+</html>
